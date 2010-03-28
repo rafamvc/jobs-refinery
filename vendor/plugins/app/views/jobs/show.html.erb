@@ -1,0 +1,57 @@
+<% content_for :body_content_title do %>
+  <%= @job.job_title %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  
+  <div>
+    <h1><%= @job.job_title %></h1>
+  </div>
+  
+  <div>
+    <h2>Description</h2>
+    <%= @job.description %>
+  </div>
+  <% unless @job.desired_skills.blank?%>
+  <div>
+    <h2>Desired Skills</h2>
+    <%= @job.desired_skills %>
+  </div>
+  <%end%>
+  <% unless @job.required_skills.blank?%>
+  <div>
+    <h2>Required Skills</h2>
+    <%= @job.required_skills %>
+  </div>
+  <%end%>
+  <% unless @job.employment_terms.blank?%>
+  <div>
+    <h2 style='display:inline'>Employment Terms:</h2>  <%= @job.employment_terms %>
+  </div>
+  <%end%>  
+  <% unless @job.hours.blank?%>
+  <br>
+  <div>
+    <h2 style='display:inline'>Hours:</h2>
+    <%= @job.hours %>
+  </div>
+  <%end%>  
+
+  <h1> <%= link_to 'Apply for this position', new_job_job_application_url(@job) %></h1>
+
+
+<% end %>
+
+<% content_for :body_content_right do %>
+  <h2> <%= link_to 'Apply for this position', new_job_job_application_url(@job) %></h2>
+  <h2>Other Jobs</h2>
+  <ul id="jobs">
+    <% @jobs.each do |job| %>
+      <li>
+        <%= link_to job.job_title, jobs_url(job) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

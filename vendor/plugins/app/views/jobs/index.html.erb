@@ -1,0 +1,12 @@
+<% content_for :body_content_left do %>
+<h1> Current open positions</h1>
+  <ul id="jobs">
+    <% @jobs.each do |job| %>
+      <li>
+        <%= link_to job.job_title, job_url(job) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

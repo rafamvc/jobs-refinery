@@ -1,0 +1,42 @@
+<div id='actions'>
+  <ul>
+    <li>
+      <%= render :partial => "/shared/admin/search", :locals => {:url => admin_jobs_url} %>
+    </li>
+    <li>
+      <%= link_to "Create New Jobs", new_admin_job_url, :class => "add_icon" %>
+    </li>
+  <% if !searching? and Job.count > 1 %>
+    <li>
+      <%= link_to "Reorder Jobs", admin_jobs_url, :id => "reorder_action", :class => "reorder_icon" %>
+      <%= link_to "Done Reordering Jobs", admin_jobs_url, :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+<div id='records'>
+  <% if searching? %>
+    <h2>Search Results for "<%= params[:search] %>"</h2>
+    <% if @jobs.any? %>
+      <%= render :partial => "jobs", :collection => @jobs %>
+    <% else %>
+      <p>Sorry, no results found.</p>
+    <% end %>
+  <% else %>
+    <% if @jobs.any? %>
+      <%= will_paginate @jobs, :previous_label => '&laquo;', :next_label => '&raquo;' %>
+       <ul id='sortable_list'>
+        <%= render :partial => "sortable_list" %>
+       </ul>
+      <%= will_paginate @jobs, :previous_label => '&laquo;', :next_label => '&raquo;' %>
+    <% else %>
+      <p>
+        <strong>
+          There are no jobs yet.
+          Click "Create New Jobs" to add your first jobs.
+        </strong>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+<%= render :partial => "/shared/admin/make_sortable", :locals => {:tree => false } if !searching? and Job.count > 1 %>

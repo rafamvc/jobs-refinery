@@ -1,0 +1,12 @@
+
+
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(job_application) -%>">
+  <span class='title'>
+
+    <b>Name: </b><%= job_application.name %> <span class="preview">&nbsp;</span><br>
+    <b>Phone: </b><%= job_application.phone %> <span class="preview">&nbsp;</span><br>
+    <b>E-mail: </b><%= job_application.email %> <span class="preview">&nbsp;</span><br>
+    <b>Cover Letter: </b><%= job_application.cover_letter %> <span class="preview">&nbsp;</span><br>
+    <%= link_to  'Download Resume', job_application.resume.url %><span class="preview">&nbsp;</span><br>
+  </span>
+</li>

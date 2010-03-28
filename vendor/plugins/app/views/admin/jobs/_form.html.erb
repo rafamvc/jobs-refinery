@@ -1,0 +1,35 @@
+<%= error_messages_for :job -%>
+<% form_for [:admin, @job] do |f| -%>
+  
+  <div class='field'>
+    <%= f.label :job_title -%>
+    <%= f.text_field :job_title, :class => 'larger' -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :description -%>
+    <%= f.text_area :description, :rows => 8, :cols => 140, :class => 'wymeditor' -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :desired_skills -%>
+    <%= f.text_area :desired_skills, :rows => 8, :cols => 140, :class => 'wymeditor' -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :required_skills -%>
+    <%= f.text_area :required_skills, :rows => 8, :cols => 140, :class => 'wymeditor' -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :employment_terms -%>
+    <%= f.text_field :employment_terms -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :hours -%>
+    <%= f.text_field :hours -%>
+  </div>
+  
+  <%= render :partial => "/shared/admin/form_actions", :locals => {:f => f, :continue_editing => false} %>
+<% end -%>

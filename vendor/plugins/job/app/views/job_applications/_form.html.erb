@@ -1,0 +1,32 @@
+<%= error_messages_for :job_application -%>
+
+<% form_for @job_application, :html => { :multipart => true } do |f| -%>
+  <h1>Job Application for <%= @job.job_title%> position</h2>
+  <div class='field'>
+    <%= f.label :name, 'Full name:' -%><br>
+    <%= f.text_field :name, :size => 60 -%>
+	<%= f.hidden_field :job_id, :value => @job.id %>
+  </div>
+  <br>
+  <div class='field'>
+    <%= f.label :email, 'E-mail:' -%><br>
+    <%= f.text_field :email, :size => 60 -%>
+  </div> 
+  <br>
+  <div class='field'>
+    <%= f.label :phone, 'Phone number:' -%><br>
+    <%= f.text_field :phone, :size => 60 -%>
+  </div>
+  <br>
+  <div class='field'>
+    <%= f.label :cover_letter, 'Cover letter:' -%>
+    <%= f.text_area :cover_letter, :rows => 8, :cols => 120 -%>
+  </div>
+  <br>
+  <div class='field'>
+    <%= f.label :resume, 'Resume:' -%><br>
+    <%= f.file_field :resume -%>
+  </div>
+	<br>
+  <%= f.submit 'Apply'%>
+<% end -%>

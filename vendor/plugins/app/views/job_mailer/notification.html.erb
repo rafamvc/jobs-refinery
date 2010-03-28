@@ -1,0 +1,19 @@
+Hi there,<BR>
+<BR>
+You just received a new inquiry on your website.<BR>
+<BR>
+--- inquiry starts ---<BR>
+<BR>
+From: <%= @job_application.name %><BR>
+Email: <%= @job_application.email %><BR>
+Phone: <%= @job_application.phone %><BR>
+Job:<%= @job_application.job.job_title %><BR>
+Cover Letter:<%= @job_application.cover_letter %><BR>
+Resume:<%=  link_to @job_application.resume.url, 'Click here to download the resume' %><BR>
+<BR>
+--- inquiry ends ---<BR>
+<BR>
+Kind Regards,<BR>
+Your Website.<BR>
+<BR>
+P.S. All your inquiries are stored in the "Inquiries" section of Refinery should you ever want to view it later there.<BR>

@@ -1,0 +1,19 @@
+<% content_for :body_content_title do %>
+  <%= @job.job_title %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  
+  <div>
+     <h1>Job Application for <%= @job.job_title%> position</h2>
+  </div>
+ Your job application for the <b><%= @job.job_title%></b> position was successfully submitted. <br><br>
+Thank you.
+	  <BR>
+<% end %>
+
+<% content_for :body_content_right do %>
+ 
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

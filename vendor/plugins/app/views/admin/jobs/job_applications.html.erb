@@ -1,0 +1,25 @@
+<div id='records'>
+  <% if searching? %>
+    <h2>Search Results for "<%= params[:search] %>"</h2>
+    <% if @jobs.any? %>
+      <%= render :partial => "job_applications", :collection => @job_applications %>
+    <% else %>
+      <p>Sorry, no results found.</p>
+    <% end %>
+  <% else %>
+    <% if @job_applications.any? %>
+      <%= will_paginate @job_applications, :previous_label => '&laquo;', :next_label => '&raquo;' %>
+       <ul id='sortable_list'>
+        <%= render :partial => 'job_application', :collection => @job_applications %>
+       </ul>
+      <%= will_paginate @job_applications, :previous_label => '&laquo;', :next_label => '&raquo;' %>
+    <% else %>
+      <p>
+        <strong>
+          There are no jobs yet.
+          Click "Create New JobApplications" to add your first jobs.
+        </strong>
+      </p>
+    <% end %>
+  <% end %>
+</div>
