@@ -1,0 +1,9 @@
+This is a plugin to add the resource of creating job posting on your website and receiving job applications.
+All the job applications will be saved and sent by e-mail, to whoever is register at the inquiry recipients.
+
+The migration is in the directory 'migrations', make sure to copy it to your migration folder, under your project and run 'rake db:migrate'.
+
+This plugin was made to fit my needs, and I will gladly help you adjust it to yours! 
+
+Thank you,
+Rafael Cardoso
